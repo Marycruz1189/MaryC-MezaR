@@ -1,6 +1,6 @@
-class Orco:
+class Orco():
 
-    def __init__(self,  nombre, armadura, nivel, ataque, ojos=2, piernas=2, dientes=56, salud=100)
+    def __init__(self,  nombre, armadura, nivel, ataque, ojos=2, piernas=2, dientes=56, salud=100):
         self.nombre = nombre
         self.armadura = armadura
         self.nivel = nivel
@@ -11,14 +11,13 @@ class Orco:
         self.salud = salud
 
     
-    def atacar(Humano):
-        Humano.salud -= self.ataque - Orco.armadura
-        print("La salud del Orco es", Orco.salud)
+    def atacar(self,humano):
+        humano.salud -= self.ataque - humano.armadura
+        print("La salud del Humano es", humano.salud)
 
     
-    def no_vivo(self,salud):
-        self.salud = salud
-        if salud =< 0:
+    def no_vivo(self):
+        if self.salud <= 0:
             return True
         else:
             return False
@@ -26,4 +25,5 @@ class Orco:
     def mostrar_atributos(self):
         print("nombre:", self.nombre, "/", "dientes:", self.dientes, "/", "ojos:", self.ojos, 
         "/", "piernas:", self.piernas, "/", "armadura:", self.armadura, "/", "nivel:", self.nivel, "/", "ataque:",
-        self.ataque, "/", "salud",self.salud  )
+        self.ataque, "/", "salud",self.salud)
+
