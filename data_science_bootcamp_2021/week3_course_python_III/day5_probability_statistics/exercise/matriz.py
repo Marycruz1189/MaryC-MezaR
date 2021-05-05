@@ -86,3 +86,9 @@ import numpy as np
         for i in range(len(matriz[0])):
             matriz[i,i] = matriz[i,i]
         print(matriz)
+
+
+# http://progra.usm.cl/apunte/tareas/2015-1/tarea-2.html
+# http://progra.usm.cl/apunte/tareas/2015-1/pygame.html
+# https://gist.github.com/nicolasfig/3859954#file-clasematriz-py
+# https://gist.github.com/nicolasfig/3859954#file-clasematriz-py
