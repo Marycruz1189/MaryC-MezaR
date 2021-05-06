@@ -1,17 +1,17 @@
+class tablero():
 
-def matriz_barco (fila,columna,caracter):
+
+    def __init__ (self, fila,columna,caracter):
+        self.fila = fila
+        self.columna = columna
+        self.caracter = caracter
+
+    def crear_tablero (self, fila, columna, caracter):
+
+        import numpy as np
+        matrix = np.full((fila,columna), str(caracter))
+        return matrix
     
-    matriz = []
-    for i in range(fila):
-        a = [caracter]*columna
-        matriz.append(a)
-    return matriz
-matriz_barco(10, 10, "~")
+   
 
-
-    #Cada jugador deberá colocar en su tablero:
-    # 4 barcos tamaño 2x1.
-    # 3 barcos tamaño 3x1.
-    # 2 barcos tamaño 4x1.
-    # 1 barco tamaño 5x1.
 
