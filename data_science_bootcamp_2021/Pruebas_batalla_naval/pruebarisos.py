@@ -1,15 +1,14 @@
 import sys
 import copy, random
+import numpy as np
 
 def imprime_tablero():
-    tablero_jugador = []
-    tablero_oponente = []
-
-    for x in range(10):
-        tablero_jugador.append(["~"] * 10)
-        tablero_oponente.append(["~"] * 10)
 
 
+    tablero_jugador = np.full((10,10), "~")
+    tablero_oponente = np.full((10,10), "~")
+
+    
 
     posicionar_barcos(tablero_jugador, tablero_oponente) #call function to choose ships
 
@@ -92,7 +91,7 @@ def ubicar_barcos(tablero_jugador, tamano_barco, posicion, tipo_barco):
             resultado = validar_posicion(tablero_jugador, tamano_barco, columna, fila, pos2,'v')
             if resultado is True:
                 for i in range(0, tamano_barco):
-                    tablero_jugador[int(pos2 + i)][int(columna) - 1] = str(tipo_barco)
+                    tablero_jugador[int(pos2) + i-1)][int(columna) - 1] = "X"
 
             print(tablero_jugador)
 
@@ -102,7 +101,7 @@ def ubicar_barcos(tablero_jugador, tamano_barco, posicion, tipo_barco):
             resultado = validar_posicion(tablero_jugador, tamano_barco, columna, fila,pos2, 'h')
             if resultado is True:
                 for i in range(0, tamano_barco):
-                    tablero_jugador[int(fila)][int(pos2) + i - 1] = str(tipo_barco)
+                    tablero_jugador[int(fila)][int(pos2) + i - 1] = "X"
             print(tablero_jugador)
 
 
