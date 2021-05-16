@@ -101,3 +101,6 @@ TEXTO_INFORMACIONES = "Barcos en juego "
 TEXTO_ACTIVOS = "Activos"
 
 N_BARCOS = 5
+
+
+
