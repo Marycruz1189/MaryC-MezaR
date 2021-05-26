@@ -1,0 +1,191 @@
+Comunidad Autónoma,Año,Poblacion
+01 Andalucía,2010,8370975
+01 Andalucía,2018,8384408
+01 Andalucía,2017,8379820
+01 Andalucía,2014,8402305
+01 Andalucía,2015,8399043
+01 Andalucía,2011,8424102
+01 Andalucía,2016,8388107
+01 Andalucía,2013,8440300
+01 Andalucía,2012,8449985
+01 Andalucía,2019,8414240
+02 Aragón,2012,1349467
+02 Aragón,2018,1308728
+02 Aragón,2017,1308750
+02 Aragón,2016,1308563
+02 Aragón,2011,1346293
+02 Aragón,2013,1347150
+02 Aragón,2014,1325385
+02 Aragón,2019,1319291
+02 Aragón,2010,1347095
+02 Aragón,2015,1317847
+"03 Asturias, Principado de",2010,1084341
+"03 Asturias, Principado de",2018,1028244
+"03 Asturias, Principado de",2012,1077360
+"03 Asturias, Principado de",2017,1034960
+"03 Asturias, Principado de",2014,1061756
+"03 Asturias, Principado de",2013,1068165
+"03 Asturias, Principado de",2016,1042608
+"03 Asturias, Principado de",2011,1081487
+"03 Asturias, Principado de",2015,1051229
+"03 Asturias, Principado de",2019,1022800
+"04 Balears, Illes",2016,1107220
+"04 Balears, Illes",2014,1103442
+"04 Balears, Illes",2015,1104479
+"04 Balears, Illes",2013,1111674
+"04 Balears, Illes",2017,1115999
+"04 Balears, Illes",2012,1119439
+"04 Balears, Illes",2019,1149460
+"04 Balears, Illes",2011,1113114
+"04 Balears, Illes",2018,1128908
+"04 Balears, Illes",2010,1106049
+05 Canarias,2017,2108121
+05 Canarias,2013,2118679
+05 Canarias,2011,2126769
+05 Canarias,2015,2100306
+05 Canarias,2010,2118519
+05 Canarias,2018,2127685
+05 Canarias,2016,2101924
+05 Canarias,2019,2153389
+05 Canarias,2012,2118344
+05 Canarias,2014,2104815
+06 Cantabria,2015,585179
+06 Cantabria,2019,581078
+06 Cantabria,2013,591888
+06 Cantabria,2014,588656
+06 Cantabria,2018,580229
+06 Cantabria,2012,593861
+06 Cantabria,2011,593121
+06 Cantabria,2016,582206
+06 Cantabria,2010,592250
+06 Cantabria,2017,580295
+07 Castilla y León,2018,2409164
+07 Castilla y León,2012,2546078
+07 Castilla y León,2016,2447519
+07 Castilla y León,2010,2559515
+07 Castilla y León,2013,2519875
+07 Castilla y León,2017,2425801
+07 Castilla y León,2019,2399548
+07 Castilla y León,2015,2472052
+07 Castilla y León,2011,2558463
+07 Castilla y León,2014,2494790
+08 Castilla - La Mancha,2019,2032863
+08 Castilla - La Mancha,2010,2098373
+08 Castilla - La Mancha,2018,2026807
+08 Castilla - La Mancha,2013,2100998
+08 Castilla - La Mancha,2016,2041631
+08 Castilla - La Mancha,2011,2115334
+08 Castilla - La Mancha,2012,2121888
+08 Castilla - La Mancha,2017,2031479
+08 Castilla - La Mancha,2015,2059191
+08 Castilla - La Mancha,2014,2078611
+09 Cataluña,2015,7508106
+09 Cataluña,2018,7600065
+09 Cataluña,2016,7522596
+09 Cataluña,2017,7555830
+09 Cataluña,2019,7675217
+09 Cataluña,2014,7518903
+09 Cataluña,2010,7512381
+09 Cataluña,2012,7570908
+09 Cataluña,2013,7553650
+09 Cataluña,2011,7539618
+10 Comunitat Valenciana,2012,5129266
+10 Comunitat Valenciana,2017,4941509
+10 Comunitat Valenciana,2015,4980689
+10 Comunitat Valenciana,2013,5113815
+10 Comunitat Valenciana,2011,5117190
+10 Comunitat Valenciana,2014,5004844
+10 Comunitat Valenciana,2019,5003769
+10 Comunitat Valenciana,2016,4959968
+10 Comunitat Valenciana,2010,5111706
+10 Comunitat Valenciana,2018,4963703
+11 Extremadura,2018,1072863
+11 Extremadura,2012,1108130
+11 Extremadura,2019,1067710
+11 Extremadura,2016,1087778
+11 Extremadura,2017,1079920
+11 Extremadura,2013,1104004
+11 Extremadura,2015,1092997
+11 Extremadura,2010,1107220
+11 Extremadura,2014,1099632
+11 Extremadura,2011,1109367
+12 Galicia,2016,2718525
+12 Galicia,2017,2708339
+12 Galicia,2018,2701743
+12 Galicia,2010,2797653
+12 Galicia,2011,2795422
+12 Galicia,2012,2781498
+12 Galicia,2019,2699499
+12 Galicia,2014,2748695
+12 Galicia,2015,2732347
+12 Galicia,2013,2765940
+"13 Madrid, Comunidad de",2015,6436996
+"13 Madrid, Comunidad de",2010,6458684
+"13 Madrid, Comunidad de",2013,6495551
+"13 Madrid, Comunidad de",2016,6466996
+"13 Madrid, Comunidad de",2017,6507184
+"13 Madrid, Comunidad de",2019,6663394
+"13 Madrid, Comunidad de",2012,6498560
+"13 Madrid, Comunidad de",2018,6578079
+"13 Madrid, Comunidad de",2014,6454440
+"13 Madrid, Comunidad de",2011,6489680
+"14 Murcia, Región de",2018,1478509
+"14 Murcia, Región de",2017,1470273
+"14 Murcia, Región de",2013,1472049
+"14 Murcia, Región de",2011,1470069
+"14 Murcia, Región de",2014,1466818
+"14 Murcia, Región de",2016,1464847
+"14 Murcia, Región de",2012,1474449
+"14 Murcia, Región de",2019,1493898
+"14 Murcia, Región de",2010,1461979
+"14 Murcia, Región de",2015,1467288
+"15 Navarra, Comunidad Foral de",2012,644566
+"15 Navarra, Comunidad Foral de",2017,643234
+"15 Navarra, Comunidad Foral de",2019,654214
+"15 Navarra, Comunidad Foral de",2015,640476
+"15 Navarra, Comunidad Foral de",2014,640790
+"15 Navarra, Comunidad Foral de",2011,642051
+"15 Navarra, Comunidad Foral de",2010,636924
+"15 Navarra, Comunidad Foral de",2018,647554
+"15 Navarra, Comunidad Foral de",2016,640647
+"15 Navarra, Comunidad Foral de",2013,644477
+16 País Vasco,2018,2199088
+16 País Vasco,2010,2178339
+16 País Vasco,2013,2191682
+16 País Vasco,2014,2188985
+16 País Vasco,2017,2194158
+16 País Vasco,2012,2193093
+16 País Vasco,2016,2189534
+16 País Vasco,2015,2189257
+16 País Vasco,2019,2207776
+16 País Vasco,2011,2184606
+"17 Rioja, La",2013,322027
+"17 Rioja, La",2015,317053
+"17 Rioja, La",2016,315794
+"17 Rioja, La",2018,315675
+"17 Rioja, La",2011,322955
+"17 Rioja, La",2012,323609
+"17 Rioja, La",2014,319002
+"17 Rioja, La",2017,315381
+"17 Rioja, La",2010,322415
+"17 Rioja, La",2019,316798
+18 Ceuta,2017,84959
+18 Ceuta,2014,84963
+18 Ceuta,2018,85144
+18 Ceuta,2019,84777
+18 Ceuta,2016,84519
+18 Ceuta,2010,80579
+18 Ceuta,2015,84263
+18 Ceuta,2013,84180
+18 Ceuta,2012,84018
+18 Ceuta,2011,82376
+19 Melilla,2014,84509
+19 Melilla,2017,86120
+19 Melilla,2016,86026
+19 Melilla,2015,85584
+19 Melilla,2013,83679
+19 Melilla,2012,80802
+19 Melilla,2011,78476
+19 Melilla,2010,76034
+19 Melilla,2018,86384
+19 Melilla,2019,86487
