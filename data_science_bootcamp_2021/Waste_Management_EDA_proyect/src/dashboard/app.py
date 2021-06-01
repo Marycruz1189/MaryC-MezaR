@@ -5,15 +5,22 @@ import pandas as pd
 import os
 import sys
 dir = os.path.dirname
+import requests
 src_path = (dir(dir(__file__)))
 sys.path.append(src_path)
 import utils.dashboard_tb as ft
 path = os.path.dirname(__file__)
+import plotly.express as px
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+import utils.visualization_tb as vis
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 ft.configuracion()
 
 menu = st.sidebar.selectbox('Menu:',
-                            options=["No selected", "Welcome", "Data", "Flask_API"])
+                            options=["No selected", "Welcome", "Data", "Flask_API", 'Graphs' ])
 
 st.title("WASTE MANAGEMENT SPAIN")
 img = Image.open( dir(dir(path)) + os.sep + 'resources' + os.sep+ 'waste.jpg')
@@ -21,37 +28,26 @@ st.image(img,use_column_width=True)
 
 if menu == 'Welcome':
     ft.menu_home()
-    #st.title('¡Welcome to the EDA project Waste Management in Spain')
-    #st.write('WHAT A WASTE: A national review of solid waste management')
-    
+        
 if menu == 'Data':
     ft.menu_data()
-    #st.dataframe(df)
-   
-    #dir = os.path.dirname
-    #path = os.path.dirname(__file__)
-    #csv_path = dir(dir(path)) + os.sep + 'data' + os.sep+'waste_management_cleaned.csv'
+    
 if menu == 'Flask_API':
-    #ft.menu_api()
-    st.write("http://localhost:6060/token_id?token_id=Y4290783D") 
+    ft.menu_api()
+
+if menu == 'Graphs':
+    csv_path = dir(dir(path)) + os.sep + 'reports' + os.sep+'waste_management_cleaned.csv'
+    df = pd.read_csv(csv_path)
+    st.pyplot(vis.graph_analysis_disposal(df))
+    st.pyplot(vis.comparative_scatter(df))
+    st.pyplot(vis.correlation_variables(df))
+    st.pyplot(vis.correlation_gdp_kg(df))
+
+    #ft.menu_graphs()
 
 
     
-    #df = pd.read_csv(csv_path)
-    #st.dataframe(df)
-    #SEP = os.sep
-    #dir = os.path.dirname
-    #csv_path = dir(dir(dir(os.getcwd()))) + SEP + "data" + SEP + "waste_management_cleaned.csv"
-    #df = ft.menu_data(csv_path)
-
-    
-   # ft.menu_data(df)
-    #SEP = os.sep
-    #dir = os.path.dirname
-    #csv_path = dir(os.getcwd()) + SEP + "data" + SEP + "waste_management_cleaned.csv"
-    #df = ft.cargar_datos(csv_path)
-    #df = pd.read_csv(df)
-
+ 
 
 
 
