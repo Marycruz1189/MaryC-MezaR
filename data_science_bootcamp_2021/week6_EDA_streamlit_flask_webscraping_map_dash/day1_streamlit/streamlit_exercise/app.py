@@ -4,12 +4,14 @@ import os
 from utils.stream_config import draw_map
 from utils.dataframes import load_normal_csv, load_csv_for_map
 
+csv_path = path + os.sep + 'red_recarga_acceso_publico _2021.csv'
+
 
 path = os.path.dirname(__file__)
 menu = st.sidebar.selectbox('Menu:',
-            options=["Bienvenida", "Analizador", "Mapa con Globos"])
+            options=["Welcome", "Data", "Mapa con Globos"])
 
-if menu == 'Bienvenida':
+if menu == 'Welcome':
     st.title('¡Bienvenidos al Bootcamp de The Bridge')
     st.write('Es un placer tenerte por aquí')
 

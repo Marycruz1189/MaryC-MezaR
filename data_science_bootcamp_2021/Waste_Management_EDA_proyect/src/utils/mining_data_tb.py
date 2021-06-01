@@ -16,9 +16,7 @@ def read_databases():
     csv_fullpath_popu = dir(os.getcwd()) + SEP + "data" + SEP + "poblacion.xls"
     #global csv_fullpath_c
     csv_fullpath_c = dir(os.getcwd()) + SEP + "data" + SEP + "recogida_residuos.xlsx"
-    #global csv_fullpath_e
-    csv_fullpath_e = dir(os.getcwd()) + SEP + "data" + SEP + "total contaminantes nacional.xlsx"
-    return csv_fullpath_gdp, csv_fullpath_d, csv_fullpath_popu, csv_fullpath_c, csv_fullpath_e
+    return csv_fullpath_gdp, csv_fullpath_d, csv_fullpath_popu, csv_fullpath_c
     
 if __name__ == '__main__':
     read_databases()
@@ -84,8 +82,6 @@ def clean_collection(waste_collection):
   
     return waste_collection
 
-#def new_func(waste_collection):
-    waste_collection['Recoleccion-domésticos y vias', 'Recoleccion-voluminosos', 'Recoleccion-metálicos', 'Recoleccion-vidrio', 'Recoleccion-papel y carton', 'Recoleccion-plasticos', 'Recoleccion-madera', 'Recoleccion-textiles', 'Recoleccion-eq. electricos', 'Recoleccion-pilas', 'Recoleccion-animales', 'Recoleccion-Envases mixtos', 'lodos', 'Recoleccion-construccion', 'Recoleccion-otros', 'TOTAL RESIDUOS MEZCLADOS', 'TOTAL RESIDUOS DE RECOGIDA SEPARADA', 'TOTAL RESIDUOS'] = waste_collection['Recoleccion-domésticos y vias', 'Recoleccion-voluminosos', 'Recoleccion-metálicos', 'Recoleccion-vidrio', 'Recoleccion-papel y carton', 'Recoleccion-plasticos', 'Recoleccion-madera', 'Recoleccion-textiles', 'Recoleccion-eq. electricos', 'Recoleccion-pilas', 'Recoleccion-animales', 'Recoleccion-Envases mixtos', 'lodos', 'Recoleccion-construccion', 'Recoleccion-otros', 'TOTAL RESIDUOS MEZCLADOS', 'TOTAL RESIDUOS DE RECOGIDA SEPARADA', 'TOTAL RESIDUOS'].astype(str).astype(int)
 
 def clean_disposal(waste_disposal):   
     round(waste_disposal.iloc[:, 2:11],2)
@@ -94,26 +90,10 @@ def clean_disposal(waste_disposal):
     waste_disposal['Comunidad Autónoma'] = waste_disposal['Comunidad Autónoma'].str.upper()
     return waste_disposal
 
-def clean_emissions(waste_emissions):
-    import pandas as pd 
-    col_list= list(waste_emissions)
-    col_list.remove('ANNO')
-    col_list
-    waste_emissions['Total Nacional'] = waste_emissions[col_list].sum(axis=1)
-    waste_emissions = waste_emissions.drop(columns=['SECTOR','ACTIVIDAD'], axis=1)
-    to_drop = waste_emissions.iloc[:, 2:30]
-    waste_emissions.drop(to_drop, inplace = True , axis= 1 )
-    waste_emissions.rename(columns={'ANNO': 'Año'}, inplace= True) 
-    waste_emissions['Total Nacional'] = pd.Series([round(val, 2) for val in waste_emissions ['Total Nacional']])
-    waste_emissions = waste_emissions.pivot(index='Año', columns='DESCRIPCION', values='Total Nacional')
-    waste_emissions['Año'] = waste_emissions.index
-    waste_emissions.reset_index(inplace=True, drop=True)
-    waste_emissions = waste_emissions.rename(index={'DESCRIPCION': 'Index'})
-    return waste_emissions
 # def save_clean_files():
 #     """Function that returns all clean files """
 
-def merge(gdp, population, waste_collection, waste_disposal, waste_emissions):
+def merge(gdp, population, waste_collection, waste_disposal):
     import pandas as pd 
     population["Año"] = population["Año"].astype(str).astype(int)
     gdp["Año"] = gdp["Año"].astype(str).astype(int)
@@ -122,13 +102,13 @@ def merge(gdp, population, waste_collection, waste_disposal, waste_emissions):
     data_merged_gdp_pop =  pd.merge(left=gdp, right=population, how="outer", on=["Año", 'Comunidad Autónoma'])
     data_merged_gdp_pop['GDP per capita'] = round((data_merged_gdp_pop['PIB']/data_merged_gdp_pop['Poblacion']*1000),2)
     data_merged_2 =  pd.merge(left=data_merged_gdp_pop, right=waste_collection, how="outer", on=["Año", 'Comunidad Autónoma'])
-    data_merged_3 =  pd.merge(left=data_merged_2, right=waste_disposal, how="outer", on=["Año","Comunidad Autónoma"])
-    clean_database =  pd.merge(left=data_merged_3, right=waste_emissions, how="outer", on=["Año"])
-    clean_database = clean_database.drop([180], axis=0 )
+    waste_management =  pd.merge(left=data_merged_2, right=waste_disposal, how="outer", on=["Año","Comunidad Autónoma"])
+    #waste_management =  pd.merge(left=data_merged_3, right=waste_emissions, how="outer", on=["Año"])
+    
 
-    return clean_database
+    return waste_management
 
-def rename_db(clean_database):
+def rename_db(waste_management):
     new_names = {'Comunidad Autónoma': 'Autonomous communities', 'Año': 'Year', 'PIB':'GDP', 'Poblacion': 'Population', 'PIB per capita': 'GDP per capita', 'Recoleccion-domésticos y vias': 'Domestic Waste and Wheelie Bins -C', 'Recoleccion-voluminosos': 'Bulk -C',
        'Recoleccion-metálicos': 'Metallics waste-C', 'Recoleccion-vidrio': 'Waste Glass-C',
        'Recoleccion-papel y carton':'Waste Paper and Cardboard-C', 'Recoleccion-plasticos': 'Plastics-C',
@@ -136,13 +116,52 @@ def rename_db(clean_database):
        'Recoleccion-eq. electricos': 'Electrical waste-C', 'Recoleccion-pilas': 'Battery-C',
        'Recoleccion-animales': 'Animal-C', 'Recoleccion-Envases mixtos': 'Mixed packaging-C', 'lodos': 'Sludge-C',
        'Recoleccion-construccion': 'Construction-C', 'Recoleccion-otros': 'Others-C',
-       'TOTAL RESIDUOS MEZCLADOS': 'Total mixed waste', 'TOTAL RESIDUOS DE RECOGIDA SEPARADA': 'Total separately waste-C (tn)',
-       'TOTAL RESIDUOS': 'Total Waste', 'Gestion: Incineracion (tn)': 'Incineration (tn)-D',
-       'Gestion: Opereaciones de relleno (tn)': 'Backfilling (tn)-D' , 'Gestion Recuperacion (tn)': 'Recovery (recycled, WTE, compost, others (tn) -D',
-       'Gestion Total (tn)': 'Total Waste disposal (tn)-D', 'Gestion Vertido (tn)': 'Landfill (tn)-D',
-       'Biological treatment of waste - Anaerobic digestion at biogas facilities': 'BT - Anaerobic digestion at biogas-E',
-       'Biological treatment of waste - Composting': 'Bt - Composting-E',
-       'Biological treatment of waste - Solid waste disposal on land':'Bt - Disposal on land-E', 'Other waste (please specify in IIR)' : 'Other waste-E',
-       'Other waste incineration (please specify in the IIR)':'Other waste incineration-E'}
-    clean_database.rename(columns=new_names, inplace=True)
-    return clean_database
+       'TOTAL RESIDUOS MEZCLADOS': 'Total mixed waste-C', 'TOTAL RESIDUOS DE RECOGIDA SEPARADA': 'Total separately waste-C (tn)',
+       'TOTAL RESIDUOS': 'Total Waste-C', 'Reciclado procedente de recogida separada': 'Recycling collection-D', 'Materiales recuperados-TMB mezclados': 'Mixed Recovered Mater-D', 
+       'Compostado/Digestion anaerobia de FORS': 'Composting/anaerobic digestion FORS-D', 'Compostado/Digestión anaerobia': 'Composting/anaerobic digestion-D', 'Incinerado':'Incinerated-D',
+       'Gestion: Incineracion (tn)': 'Incineration (tn)-D', 'Vertido de rechazos':'Landfill of rejects', 
+       'Vertido sin tratamiento previo': 'Landfill without pre-treatment-D', 'Total': 'Total Waste disposal (tn)-D'}
+    waste_management.rename(columns=new_names, inplace=True)
+    return waste_management
+    
+def missing_or_null(waste_management):
+
+    print(waste_management.isnull().sum())
+
+def outliers_quantile(waste_management):
+    Q1 = waste_management.quantile(0.25)
+    Q3 = waste_management.quantile(0.75)
+    IQR = Q3 - Q1
+    print(IQR)
+
+# def outliers_analysis(waste_management):
+#     waste_management = waste_management[~((waste_management < (Q1 - 1.5 * IQR)) |(waste_management > (Q3 + 1.5 * IQR))).any(axis=1)]
+#     print(waste_management.shape)
+
+def analysis_tonsday(waste_management):
+    waste_management['Total(tons/day)'] = round((waste_management['Total Waste-C']/365),2)
+    return waste_management
+
+def analysis_kg_percapita(waste_management):
+    waste_management['Per Capita(kg/capita/day)'] = round((waste_management['Total Waste-C']/waste_management['Population']),2)
+    return waste_management       
+       
+def analysis_processed_waste(waste_management):
+    waste_management['Processed_waste'] = round((waste_management['Total Waste disposal (tn)-D']-waste_management['Landfill of rejects'] - waste_management['Landfill without pre-treatment-D']),2)
+    return waste_management 
+
+def analysis_not_processed_waste(waste_management):
+    waste_management['Not Processed_waste'] = round((waste_management['Landfill of rejects']+waste_management['Landfill without pre-treatment-D']),2)
+    return waste_management 
+
+def save_csv(waste_management):   
+       
+    return waste_management.to_csv("../reports/waste_management_cleaned.csv", index = False)
+
+def save_excel(waste_management):   
+       
+    return waste_management.to_excel("../reports/waste_management_cleaned.xlsx", index = False)  
+
+def save_json(waste_management):   
+       
+    return waste_management.to_json("../reports/waste_management_cleaned.json")  
