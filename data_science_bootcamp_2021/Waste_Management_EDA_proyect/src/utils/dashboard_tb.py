@@ -9,7 +9,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import seaborn as sns
 import matplotlib
-matplotlib.use('TkAgg')
+#matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import utils.visualization_tb as vis
 st.set_option('deprecation.showPyplotGlobalUse', False)
