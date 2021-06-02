@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template, jsonify
 import argparse
 import requests
-
 import os
 import sys
 dir = os.path.dirname
