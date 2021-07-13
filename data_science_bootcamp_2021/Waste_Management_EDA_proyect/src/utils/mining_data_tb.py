@@ -2,6 +2,10 @@
 # functionality related to open, create, read and 
 # write ﬁles.
 
+import pandas as pd 
+import os 
+
+
 def read_databases():
     
     """ Function to read the 5 databases """

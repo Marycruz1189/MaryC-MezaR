@@ -1,1 +1,0 @@
-https://realpython.com/python-keras-text-classification/
